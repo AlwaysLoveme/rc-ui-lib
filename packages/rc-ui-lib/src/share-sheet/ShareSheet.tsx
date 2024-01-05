@@ -110,6 +110,7 @@ const ShareSheet: React.FC<ShareSheetProps> = (props) => {
         'overlayStyle',
         'overlayClass',
         'closeOnClickOverlay',
+        'teleport',
       ])}
     >
       {renderHeader()}
