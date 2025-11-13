@@ -16,13 +16,12 @@ import { doubleRaf } from '../utils/raf';
 
 import type { PickerInstance } from '../picker';
 
-
 const TimePicker = forwardRef<DateTimePickerInstance, TimePickerProps>((props, ref) => {
   const formatValue = (value?: string): string => {
     const { minHour, maxHour, minMinute, maxMinute } = props;
 
     if (!value) {
-      value = `${padZero(minHour)}:${padZero(minHour)}`;
+      value = `${padZero(minHour)}:${padZero(minMinute)}`;
     }
 
     let [hour, minute] = value.split(':');

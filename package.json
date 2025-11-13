@@ -3,18 +3,19 @@
   "scripts": {
     "preinstall": "npx only-allow pnpm",
     "prepare": "husky install",
-    "start": "pnpm -r --filter ./packages/rc-ui-lib start",
-    "build": "pnpm -r --filter ./packages/rc-ui-lib build",
-    "build:cli": "pnpm -r --filter ./packages/rc-cli build",
-    "build:linter": "pnpm -r --filter ./packages/rc-linter build",
-    "build:site": "pnpm -r --filter ./packages/rc-ui-lib build:site",
-    "release:site": "pnpm -r --filter ./packages/rc-ui-lib release:site",
-    "release": "pnpm -r --filter ./packages/rc-ui-lib release",
-    "changelog": "pnpm -r --filter ./packages/rc-ui-lib changelog",
-    "test": "pnpm -r --filter ./packages/rc-ui-lib test",
-    "lint": "pnpm -r --filter ./packages/rc-ui-lib lint",
+    "start": "pnpm -r --filter rc-ui-lib start",
+    "build": "pnpm -r --filter rc-ui-lib build",
+    "build:cli": "pnpm -r --filter @rancui/cli build",
+    "build:linter": "pnpm -r --filter @rancui/linter build",
+    "build:site": "pnpm -r --filter rc-ui-lib build:site",
+    "release:site": "pnpm -r --filter rc-ui-lib release:site",
+    "release": "pnpm -r --filter rc-ui-lib release",
+    "changelog": "pnpm -r --filter rc-ui-lib changelog",
+    "test": "pnpm -r --filter rc-ui-lib test",
+    "lint": "pnpm -r --filter rc-ui-lib lint",
     "lint:prettier": "prettier --write  \"packages/rc-ui-lib/src/**/*.{js,json,ts,tsx,css,less,md}\"",
-    "clean": "rimraf node_modules"
+    "clean": "rimraf node_modules",
+    "postinstall": "pnpm build:cli && pnpm build:linter"
   },
   "repository": {
     "type": "git",
@@ -46,9 +47,8 @@
   },
   "version": "1.0.14",
   "engines": {
-    "pnpm": ">= 7.0.0"
+    "pnpm": ">= 10.0.0"
   },
-  "packageManager": "pnpm@7.17.1",
   "pnpm": {
     "overrides": {
       "esbuild": "^0.18.11"
